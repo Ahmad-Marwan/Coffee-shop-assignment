@@ -1,0 +1,43 @@
+package assignment;
+
+import java.util.Scanner;
+
+public class CoffeeShop {
+    //create a static Scanner
+    private static Scanner sc = new Scanner(System.in);
+
+    //main method
+    public static void main(String[] args){
+    System.out.println("Ahmad Marwan  ID:119202081");
+    System.out.println("Ahmad Ramadan ID:117202012");
+        CoffeeShop cs = new CoffeeShop();//Create instance of CoffeeShop
+        int coffee = cs.chooseCoffee();//get coffee option
+        int size = cs.chooseSize();//get size option
+        int totalPay = cs.totalPay(coffee,size);//calculate price
+        //print it
+        System.out.println("Total Price of your chosen beverage = "+totalPay+" lira.");
+
+    }
+
+    /**
+     * This method will prompt user for coffee option and return option number
+     * @return
+     */
+    public int chooseCoffee(){
+        String[] coffee = {"Black","Latte"};
+        System.out.println("Choose a coffee:");
+        for(int i = 0; i < coffee.length; i++){
+            System.out.println((i+1)+". "+coffee[i]);
+        }
+        int option = 1;
+        do {//ask user as long as valid option is not chosen
+            System.out.println("Your option: ");
+            option = sc.nextInt();
+            if (option < 1 || option > coffee.length) {
+                System.out.println("Invalid option. Try again..");
+            } else {
+                break;
+            }
+        }while(true);
+
+        return option;
